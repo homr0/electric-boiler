@@ -2,14 +2,13 @@
   "name": "electric-boiler",
   "version": "1.0.0",
   "description": "A demonstration static site built using Metalsmith and Gulp.",
-  "main": "build.js",
+  "main": "server.js",
   "author": "Rebecca Hom <rebecca.hom001@gmail.com>",
   "license": "MIT",
   "repository": "https://github.com/homr0/electric-boiler.git",
   "devDependencies": {
     "browser-sync": "^2.24.6",
     "del": "^3.0.0",
-    "gulp": "^3.9.1",
     "handlebars": "^4.0.11",
     "he": "^1.1.1",
     "jstransformer-handlebars": "^1.1.0",
@@ -25,8 +24,10 @@
     "metalsmith-permalinks": "^0.5.0",
     "metalsmith-publish": "^0.1.5",
     "metalsmith-register-helpers": "^0.4.0",
-    "multimatch": "^2.1.0",
-    "run-sequence": "^2.2.1",
     "yargs": "^12.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server.js"
   }
 }
