@@ -1,0 +1,27 @@
+{
+  "dir": {
+    "base": "/",
+    "lib": "/lib/",
+    "src": "/src/",
+    "dest": "/public/"
+  },
+
+  "source": {
+    "icons": "assets/img/**/*.svg",
+    "js": "assets/js/core.js",
+    "scss": "assets/scss/main.scss",
+    "data": "data/",
+    "helpers": "helpers/",
+    "html": "html/",
+    "images": "images/**/*.{svg,png,jpeg,jpg,gif}",
+    "layouts": "layouts/",
+    "partials": "partials/"
+  },
+
+  "output": {
+    "css": "assets/css/",
+    "icon": "assets/img/",
+    "js": "assets/js/",
+    "images": "images/"
+  }
+}
