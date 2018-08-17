@@ -39,28 +39,7 @@ console.log((isProduction ? 'Production' : 'Development'), 'build, version', pkg
 
 // Development tasks
 // Image processing
-gulp.task('images', require(lib + '/gulp-images')(gulp, $g));
-/*gulp.task('images', function() {
-  // Optimizes images in production mode
-  var imagemin = $g.if(isProduction, $g.imagemin([
-    $g.imagemin.gifsicle({
-      interlaced: true
-    }),
-    $g.imagemin.jpegtran({
-      progressive: true
-    }),
-    $g.imagemin.optipng({
-      optimizationLevel: 5
-    }),
-    $g.imagemin.svgo({
-      plugins: [
-        { removeViewBox: true }
-      ]
-    })
-  ], {
-    verbose: true
-  }))
-});*/
+gulp.task('images', require(lib + '/gulp-images')(gulp, $g, isProduction));
 
 // JavaScript module bundling
 
