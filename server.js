@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Build commands
 //  `node ./server.js` or `npm start`: runs the development build
-//  `--production`: this flag makes the production build
-//  `--debug`: this flag opens up the debug log
+//  `--production` or `npm run production`: this flag makes the production build
+//  `--debug` or `npm run debug`: this flag opens up the debug log
 
 // Required modules
 var argv = require('yargs').argv;
@@ -51,5 +51,10 @@ var siteMeta = {
   rootpath: isProduction ? '/homr0/electric-boiler/master' + dir.dest : './'
 }
 
+console.log((isProduction ? 'Production' : 'Development'), 'build, version', pkg.version);
+
 // Gets the Metalsmith build
 var metalsmithBuild = require(dir.lib + 'metalsmith-build')(siteMeta, dir, source, isProduction, debugLog);
+
+// Gets the Gulp build
+//var gulpBuild = require(dir.lib + 'gulpfile.js')(isProduction, dir, source, metalsmithBuild);
