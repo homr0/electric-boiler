@@ -41,7 +41,10 @@ console.log((isProduction ? 'Production' : 'Development'), 'build, version', pkg
 // Image processing
 gulp.task('images', require(lib + '/gulp-images')(gulp, $g, isProduction));
 
+gulp.task('icons', require(lib + '/gulp-icons')(gulp, $g, isProduction));
+
 // JavaScript module bundling
+gulp.task('javascript', require(lib + '/gulp-javascript')(gulp, $g, isProduction));
 
 // Sass compiling
 
