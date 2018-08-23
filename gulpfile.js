@@ -47,6 +47,10 @@ gulp.task('icons', require(lib + '/gulp-icons')(gulp, $g, isProduction));
 gulp.task('javascript', require(lib + '/gulp-javascript')(gulp, $g, isProduction));
 
 // Sass compiling
+gulp.task('sass', require(lib + '/gulp-sass')(gulp, $g, isProduction));
 
 // Metalsmith static page generation
 gulp.task('metalsmith', require(lib + '/metalsmith-build')(siteMeta, isProduction, debugLog));
+
+// Task to build HTML files
+gulp.task('html', gulp.series('metalsmith'));
