@@ -1,0 +1,8 @@
+@function breakpoint($size) {
+    @return map-get($breakpoints, $size);
+}
+
+@function rem-calc($size) {
+    $remSize: $size / 16px;
+    @return #{$remSize}rem;
+}
