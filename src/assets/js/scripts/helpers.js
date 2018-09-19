@@ -1,0 +1,1 @@
+// Miscellaneous JavaScript helper functions
