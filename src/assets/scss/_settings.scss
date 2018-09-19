@@ -1,0 +1,213 @@
+// Global variables
+/// Table of Contents
+//    1. Global
+//    2. Media Query Breakpoints
+//    3. The Grid
+//    4. Typography
+
+// 1. Global
+// ---------
+// Default colors (from http://chir.ag/projects/name-that-color/)
+$black: #000000;
+$white: #ffffff;
+
+$red: #ff0000;
+$green: #00ff00;
+$blue: #0000ff;
+
+$yellow: #ffff00;
+$magenta: #ff00ff;
+$cyan: #00ffff;
+
+$orange: #ff681f;
+$purple: #660099;
+$gray: #808080;
+// Default theme colors
+$cornflower-blue: #777dff;
+$danube: #6f9cc9;
+$downy: #6fc9c9;
+$blue-marguerite: #6f6fc9;
+$tamarillo: #94102f;
+$forest-green: #21971d;
+$gorse: #fff44a;
+$crimson: #dc1721;
+
+// Set template swatch to default colors.
+$primary: $danube !default;
+$secondary: $downy !default;
+$alternate: $blue-marguerite !default;
+$accent: $tamarillo !default;
+$success: $forest-green !default;
+$warning: $gorse !default;
+$alert: $crimson !default;
+$dark: $black !default;
+$light: $white !default;
+$shades: $gray !default;
+
+
+// Font families.
+$font-sans-serif: sans-serif !default;
+$font-monospace: monospace !default;
+
+// Global variables.
+$body-font-family: $font-sans-serif !default;
+$global-font-size: 100% !default;
+$global-width-number: 1200px !default;
+$global-width: rem-calc($global-width-number) !default;
+$global-lineheight: 1.5 !default;
+$body-background: $light !default;
+$global-margin: 1rem !default;
+$global-padding: 1rem !default;
+$global-weight-normal: 300;
+$global-weight-bold: 700;
+$default-transition: .15s !default;
+
+// Icons
+$icon-width: 16px !default;
+$icon-height: 16px !default;
+$icon-fill: $black !default;
+$icon-color: $black !default;
+$icon-stroke-width: 0 !default;
+$icon-stroke-height: 0 !default;
+
+// Internal map to generate CSS classes for themes.
+$theme-colors: (
+    primary: $primary,
+    primary-tint: color($primary, $s: -15, $l: 80),
+    primary-shade: color($primary, $l: -40),
+    primary-strong: color($primary, $s: 30),
+    primary-weak: color($primary, $s: -70),
+    primary-transparent: color($primary, $a: 0.64),
+
+    secondary: $secondary,
+    secondary-tint: color($secondary, $s: -15, $l: 80),
+    secondary-shade: color($secondary, $l: -40),
+    secondary-strong: color($secondary, $s: 30),
+    secondary-weak: color($secondary, $s: -70),
+    secondary-transparent: color($secondary, $a: 0.64),
+
+    alternate: $alternate,
+    alternate-tint: color($alternate, $s: -15, $l: 80),
+    alternate-shade: color($alternate, $l: -40),
+    alternate-strong: color($alternate, $s: 30),
+    alternate-weak: color($alternate, $s: -70),
+    alternate-transparent: color($alternate, $a: 0.64),
+
+    accent: $accent,
+    accent-tint: color($accent, $s: -15, $l: 80),
+    accent-shade: color($accent, $l: -40),
+    accent-strong: color($accent, $s: 30),
+    accent-weak: color($accent, $s: -70),
+    accent-transparent: color($accent, $a: 0.64),
+
+    success: $success,
+    success-tint: color($success, $s: -15, $l: 80),
+    success-shade: color($success, $l: -40),
+    success-strong: color($success, $s: 30),
+    success-weak: color($success, $s: -70),
+    success-transparent: color($success, $a: 0.64),
+
+    warning: $warning,
+    warning-tint: color($warning, $s: -15, $l: 80),
+    warning-shade: color($warning, $l: -40),
+    warning-strong: color($warning, $s: 30),
+    warning-weak: color($warning, $s: -70),
+    warning-transparent: color($warning, $a: 0.64),
+
+    alert: $alert,
+    alert-tint: color($alert, $s: -15, $l: 80),
+    alert-shade: color($alert, $l: -40),
+    alert-strong: color($alert, $s: 30),
+    alert-weak: color($alert, $s: -70),
+    alert-transparent: color($alert, $a: 0.64),
+
+    gray: $gray,
+    gray-tint: color($gray, $l: 80),
+    gray-shade: color($gray, $l: -40),
+    gray-transparent: color($gray, $a: 0.64),
+
+    black: $black,
+    black-transparent: color($black, $a: 0.64),
+    white: $white,
+    white-transparent: color($white, $a: 0.64)
+) !default;
+
+// 2. Media Query Breakpoints
+// ---------------
+$size-phone: 320px;
+$size-tablet: 640px;
+$size-desktop: 1024px;
+
+$breakpoints: (
+    small: 0,
+    medium: 640px,
+    large: 1280px
+);
+
+
+// 3. The Grid
+// -----------
+$grid-columns: 12;
+$grid-equal: 4;
+
+// 4. Typography
+// -------------
+// 4.1 Base Typography Styles
+// Headers
+$header-font-family: $body-font-family !default;
+$header-font-weight: $global-weight-normal !default;
+$header-font-style: normal !default;
+$header-color: inherit !default;
+$header-lineheight: 1.4 !default;
+$header-margin-bottom: .75rem !default;
+
+// Paragraphs
+$paragraph-lineheight: 1.6 !default;
+$paragraph-margin-bottom: 1rem !default;
+
+// Code
+$code-color: $dark !default;
+$code-font-family: $font-monospace !default;
+$code-cont-weight: $global-weight-normal !default;
+$code-background: #f0f0f0 !default;
+$code-border: 1px solid #e0e0ff !default;
+$code-padding: rem-calc(2px 5px 1px) !default;
+
+// Anchors
+$anchor-color: color($primary, $s: 25, $l: -50, $a: .8) !default;
+$anchor-color-hover: complement($anchor-color) !default;
+$anchor-background-color-hover: complement(color($anchor-color, $l: 75, $a: .6)) !default;
+$anchor-color-focus: $primary !default;
+$anchor-outline-color-focus: color($primary, $s: 70, $l: 30) !default;
+$anchor-color-active: color($anchor-color-hover, $s:50) !default;
+$anchor-text-decoration: none !default;
+$anchor-text-decoration-hover: none !default;
+
+// Horizontal Rule
+$hr-width: $global-width !default;
+$hr-border: 1px solid color($shades, $l: 60) !default;
+$hr-margin: rem-calc(20px) auto !default;
+
+// List Styles
+$list-lineheight: $paragraph-lineheight !default;
+$list-margin-bottom: $paragraph-margin-bottom !default;
+$list-style-type: none !default;
+$list-style-position: outside !default;
+$list-side-margin: 2rem !default;
+$list-nested-side-margin: 2rem !default;
+
+$defnlist-margin-bottom: $paragraph-margin-bottom !default;
+$defnlist-term-weight: $global-weight-bold !default;
+$defnlist-term-margin-bottom: 1rem !default;
+$defnlist-side-margin: 1rem !default;
+
+// Blockquote
+$blockquote-color: color($shades) !default;
+$blockquote-padding: rem-calc(9px 20px 0px 19px) !default;
+$blockquote-border: 1px solid color($shades, $l:60) !default;
+
+// 4.2 Helper Typography
+// ---------------------
+// Lead class
+$lead-font-size: $global-font-size * 1.25 !default;
+$lead-lineheight: 1.6 !default;
