@@ -1,67 +1,63 @@
 // Gets the foreground color.
 @function foreground($color) {
-    @if lightness($color) > 45% {
-        @return $black;
-    }
-    @else {
-        @return $white;
-    }
+  @if lightness($color) > 45% {
+    @return $black;
+  }
+  @else {
+    @return $white;
+  }
 }
 
 // HSLA (Hue, Saturation, Lightness, Alpha) color functions for creating palettes.
 // Gets a saturation
 @function mix-saturation($color, $percentage: 0) {
-    @if $percentage >= 0 {
-        $saturated-color: hsla(hue($color), 100, 100, 1);
-        @return mix($saturated-color, $color, $percentage);
-        //@return saturate($color, $percentage);
-    }
+  @if $percentage >= 0 {
+    $saturated-color: hsla(hue($color), 100, 100, 1);
+    @return mix($saturated-color, $color, $percentage);
+  }
 
-    @if $percentage < 0 {
-        $percentage: $percentage * -1;
-        $desaturated-color: hsla(hue($color), 0, 100, 1);
-        @return mix($desaturated-color, $color, $percentage);
-        //@return desaturate($color, $percentage);
-    }
+  @if $percentage < 0 {
+    $percentage: $percentage * -1;
+    $desaturated-color: hsla(hue($color), 0, 100, 1);
+    @return mix($desaturated-color, $color, $percentage);
+  }
 }
 
 @function mix-lightness($color, $percentage: 0) {
-    @if $percentage >= 0 {
-        @return mix(white, $color, $percentage);    // Tint
-        //@return lighten($color, $percentage);
-    }
+  @if $percentage >= 0 {
+    @return mix(white, $color, $percentage);    // Tint
+  }
 
-    @if $percentage < 0 {
-        $percentage: $percentage * -1;
-        @return mix(black, $color, $percentage);    // Shade
-        //@return darken($color, $percentage);
-    }
+  @if $percentage < 0 {
+    $percentage: $percentage * -1;
+    @return mix(black, $color, $percentage);    // Shade
+  }
 }
 
 @function mix-alpha($color, $percentage: 0) {
-    $percentage: 1 - $percentage;
-    @return transparentize($color, $percentage);
+  $percentage: 1 - $percentage;
+  @return transparentize($color, $percentage);
 }
 
 @function color($color, $s: 0, $l: 0, $a: 1) {
-    @if saturation($color) == 0 {
-        $s: 0;
-    }
+  @if saturation($color) == 0 {
+    $s: 0;
+  }
 
-    $saturated-color: mix-saturation($color, $s);
-    $lightened-color: mix-lightness($saturated-color, $l);
-    @return mix-alpha($lightened-color, $a);
+  $saturated-color: mix-saturation($color, $s);
+  $lightened-color: mix-lightness($saturated-color, $l);
+  @return mix-alpha($lightened-color, $a);
 }
 
 @mixin background($color) {
-    background-color: $color;
+  background-color: $color;
+  color: foreground($color);
+
+  a {
     color: foreground($color);
 
-    a {
-        color: foreground($color);
-
-        &:hover, &:active, &:focus {
-            background-color: fade-out(complement($color), .5);
-        }
+    &:hover, &:active, &:focus {
+      background-color: fade-out(complement($color), .5);
     }
+  }
 }
