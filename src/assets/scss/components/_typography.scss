@@ -1,0 +1,238 @@
+html {
+  font-size: $global-font-size;
+  font-family: $body-font-family;
+}
+
+body {
+  font-weight: $global-weight-normal;
+  line-height: $global-lineheight;
+  color: $black;
+}
+
+.page {
+  h1, h2, h3, h4, h5, h6, p {
+    padding-left: $global-padding;
+    padding-right: $global-padding;
+    margin-bottom: $global-margin;
+  }
+
+  // Headers
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $header-font-family;
+    font-weight: $header-font-weight;
+    font-style: $header-font-style;
+
+    &.divider {
+      padding-top: $global-padding;
+      border-bottom: $hr-border;
+      padding-bottom: $global-padding / 2;
+    }
+  }
+
+  // Paragraphs
+  p {
+    @include word-wrap;
+
+    &.lead {
+      font-size: $lead-font-size;
+      line-height: $lead-lineheight;
+    }
+  }
+
+  // Horizontal Rules
+  hr {
+    max-width: $hr-width;
+    width: 100%;
+    margin: $hr-margin;
+    border-bottom: $hr-border;
+    border-bottom-color: currentColor;
+    opacity: .3;
+    color: inherit;
+  }
+
+  // Blockquote
+  blockquote {
+    color: $blockquote-color;
+    padding: $blockquote-padding;
+    border-left: $blockquote-border;
+
+    &, p {
+      font-style: italic;
+      font-weight: $global-weight-normal;
+    }
+  }
+
+    // Links
+  a {
+    border-bottom: 1px dotted $anchor-color;
+    transition: background-color $default-transition ease-in, color $default-transition ease-in, opacity $default-transition ease-in;
+    transition-delay: 0;
+    text-decoration: $anchor-text-decoration;
+    color: $anchor-color;
+
+    &:hover {
+      color: $anchor-color-hover;
+      background-color: $anchor-background-color-hover;
+      border-radius: 2px 2px 0 0;
+    }
+
+    &:focus {
+      color: $anchor-color-focus;
+      box-shadow: 0 0 2px 3px $anchor-outline-color-focus, 0 0 2px $anchor-outline-color-focus inset;
+    }
+
+    &:active {
+      color: $anchor-color-active;
+      background-color: $anchor-background-color-hover;
+      border-bottom: 1px solid;
+    }
+  }
+
+    // Lists
+  ul, ol, dl {
+    margin-bottom: 1.5rem;
+    line-height: $list-lineheight;
+    list-style-position: $list-style-position;
+    margin-left: $list-side-margin;
+  }
+
+  li {
+    margin-bottom: $list-margin-bottom;
+  }
+
+  ul {
+    list-style-type: $list-style-type;
+
+    li {
+      &:before {
+        content: url('../../assets/img/arrow.svg');
+      }
+    }
+
+    &.list-circle, &.list-disc, &.list-square {
+      li {
+        &:before {
+          content: "";
+        }
+      }
+    }
+
+    &.list-circle {
+      list-style-type: circle;
+
+      ul {
+        list-style-type: square;
+
+        ul {
+          list-style-type: disc;
+        }
+      }
+    }
+
+    &.list-disc {
+      list-style-type: disc;
+
+      ul {
+        list-style-type: circle;
+
+        ul {
+          list-style-type: square;
+        }
+      }
+    }
+
+    &.list-square {
+      list-style-type: square;
+
+      ul {
+        list-style-type: disc;
+
+        ul {
+          list-style-type: circle;
+        }
+      }
+    }
+  }
+
+  ol {
+    &.list-roman-upper {
+      list-style-type: upper-roman;
+    }
+
+    &.list-roman-lower {
+      list-style-type: lower-roman;
+    }
+
+    &.list-uppercase {
+      list-style-type: upper-alpha;
+    }
+
+    &.list-uppercase {
+      list-style-type: lower-alpha;
+    }
+  }
+
+  ul, ol {
+    &.list-no-bullet {
+      list-style-type: none;
+
+      li:before {
+        content: "";
+      }
+    }
+  }
+
+  dl {
+    dt {
+      margin-bottom: 0;
+      margin-left: $defnlist-side-margin;
+    }
+
+    dd {
+      margin-left: $defnlist-side-margin * 2;
+      margin-bottom: $defnlist-term-margin-bottom;
+    }
+  }
+
+  // Font alignment and adjustment
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .text-small {
+    font-size: 80%;
+  }
+
+  // Other
+  cite {
+    display: inline;
+    font-style: normal;
+
+    &:before {
+        content: "";
+    }
+  }
+
+  code, samp, kbd, var, pre {
+    border: none;
+    padding: 0;
+    font-family: $font-monospace;
+    font-size: 1em;
+    font-weight: 400;
+    hyphens: none;
+  }
+
+  @import 'background-colors'
+}
