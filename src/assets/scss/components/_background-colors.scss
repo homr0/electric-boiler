@@ -1,0 +1,6 @@
+// Colors that are used in for the background classes.
+@each $name, $color in $theme-colors {
+    &.bg-#{$name} {
+        @include background($color);
+    }
+}
