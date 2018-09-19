@@ -59,11 +59,12 @@ gulp.task('clean', function(done) {
   done();
 });
 
-gulp.task('browser-sync', function() {
-  browser.init({
+// Task to reload browser for BrowserSync
+gulp.task('reload', function(done) {
+  browser.reload();
+  done();
+})
 
-  })
-});
 // Gulp sequences
 // Build sequence
 gulp.task('build', gulp.series('clean', 'javascript', gulp.parallel('images', 'icons'), 'sass', 'html'));
@@ -78,23 +79,23 @@ gulp.task('watch', function(done) {
         port: 9000
     });
 
-    // Local change to the source directory path
-    src = src.replace(__basedir + '/', "");
+  // Local change to the source directory path
+  src = src.replace(__basedir + '/', "");
 
-    // Watches for any changes in JavaScript files
-    gulp.watch(src + 'assets/js/**/*.js', gulp.series('javascript', browser.reload));
+  // Watches for any changes in JavaScript files
+  gulp.watch(src + 'assets/js/**/*.js', gulp.series('javascript', 'reload'));
 
-    // Watches for any changes in the Sass files
-    gulp.watch(src + 'assets/scss/**/*.scss', gulp.series('sass', browser.reload));
+  // Watches for any changes in the Sass files
+  gulp.watch(src + 'assets/scss/**/*.scss', gulp.series('sass', 'reload'));
 
-    // Watches for any changes in the images directory
-    gulp.watch(src + source.images, gulp.series('images', browser.reload));
+  // Watches for any changes in the images directory
+  gulp.watch(src + source.images, gulp.series('images', 'reload'));
 
-    // Watches for any changes in the icons directory
-    gulp.watch(src + source.icons, gulp.series('icons', browser.reload));
+  // Watches for any changes in the icons directory
+  gulp.watch(src + source.icons, gulp.series('icons', 'reload'));
 
-    // Watches for any changes in the content pages, layouts or partials
-    gulp.watch([src + source.html + '**/*.{md,html}', src + source.layouts + '**/*.hbs', src + source.partials + '**/*.hbs'], gulp.series('html', browser.reload));
+  // Watches for any changes in the content pages, layouts or partials
+  gulp.watch([src + source.html + '**/*.{md,html}', src + source.layouts + '**/*.hbs', src + source.partials + '**/*.hbs'], gulp.series('html', 'reload'));
 
     done();
 });
