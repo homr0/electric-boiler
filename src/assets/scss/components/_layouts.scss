@@ -1,0 +1,154 @@
+// Layout Styles
+// Sets up the HTML, body, and tags.
+html {
+    font-size: 100%;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100%;
+    z-index: 0;
+    position: relative;
+    background-color: $body-background;
+}
+
+// Default layout tags.
+blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+// Sets up the masonry.
+section, .section, .row, .column, header, [role="header"], footer, [role="footer"], .content {
+    display: flex;
+    background-size: cover;
+    position: relative;
+}
+
+section, .section, header, [role="header"], footer, [role="footer"] {
+    position: relative;
+    margin: 0 auto;
+    z-index: 0;
+    width: 100%;
+    left: 0;
+    background-position: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    width: 100%;
+    max-width: $global-width;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.column {
+    min-width: 0;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.module {
+    display: block;
+    width: 100%;
+
+    &:first-child {
+        padding-top: $global-padding;
+    }
+
+    &:last-child {
+        padding-bottom: $global-padding;
+    }
+}
+
+// Mobile (Phone) Screen (small size) columns
+@media only screen and (min-width: breakpoint(small)) {
+    .row {
+        @for $i from 1 through $grid-equal {
+            &.small-up-#{$i} {
+                flex-wrap: wrap;
+                .column {
+                    flex: 0 0 (100% / $i);
+                    max-width: (100% / $i);
+                }
+            }
+        }
+
+        &[class*="medium-up-"], &[class*="large-up-"] {
+            flex-wrap: wrap;
+            .column {
+                flex: 0 0 100%;
+                width: 100%;
+            }
+        }
+    }
+
+    @for $i from 1 through $grid-columns {
+        .small-#{$i} {
+            flex: 0 0 ($i / $grid-columns * 100%);
+            max-width: ($i / $grid-columns * 100%);
+        }
+    }
+    [class*="medium-"], [class*="large-"] {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+}
+
+// Tablet Screen (medium size) columns
+@media only screen and (min-width: breakpoint(medium)) {
+    @for $i from 1 through $grid-columns {
+        .medium-#{$i} {
+            flex: 0 0 ($i / $grid-columns * 100%);
+            max-width: ($i / $grid-columns * 100%);
+        }
+    }
+    [class*="large-"] {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .row {
+        @for $i from 1 through $grid-equal {
+            &.medium-up-#{$i} {
+                flex-wrap: wrap;
+                .column {
+                    flex: 0 0 (100% / $i);
+                    max-width: (100% / $i);
+                }
+            }
+        }
+
+        &[class*="large-up-"] {
+            .column {
+                flex: 0 0 100%;
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Desktop Screen (large size) columns
+@media only screen and (min-width: breakpoint(large)) {
+    @for $i from 1 through $grid-columns {
+        .large-#{$i} {
+            flex: 0 0 ($i / $grid-columns * 100%);
+            max-width: ($i / $grid-columns * 100%);
+        }
+    }
+
+    .row {
+        @for $i from 1 through $grid-equal {
+            &.large-up-#{$i} {
+                flex-wrap: wrap;
+                .column {
+                    flex: 0 0 (100% / $i);
+                    max-width: (100% / $i);
+                }
+            }
+        }
+    }
+}
