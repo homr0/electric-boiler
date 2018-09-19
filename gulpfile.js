@@ -30,7 +30,7 @@ var siteMeta = {
   desc: "A demonstration static site built using Metalsmith and Gulp",
   author: "Rebecca Hom",
   domain: isProduction ? 'https://rawgit.com' : 'http://127.0.0.1',
-  rootpath: isProduction ? '/homr0/electric-boiler/master' + dir.dest : './'
+  rootpath: isProduction ? '/homr0/electric-boiler/master' + dir.dest : '/'
 }
 
 console.log((isProduction ? 'Production' : 'Development'), 'build, version', pkg.version);

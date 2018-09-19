@@ -7,7 +7,6 @@ A demonstration static site built using Metalsmith and Gulp v4.
 * Test the following Gulp tasks:
  * images
  * icons
- * javascript
- * sass
- * html
-* Figure out why gulp watchers aren't always running on file changes.
+ * javascript [works]
+ * sass [works]
+ * html [works]
